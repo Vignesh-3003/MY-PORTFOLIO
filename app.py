@@ -3,7 +3,7 @@ import os
 import re
 import sqlite3
 
-from flask import Flask, g, jsonify, request, send_from_directory
+from flask import Flask, abort, g, jsonify, request, send_from_directory
 
 app = Flask(__name__)
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -44,6 +44,13 @@ def close_db(_):
 @app.route("/")
 def home():
     return send_from_directory(BASE, "index.html")
+
+
+@app.get("/<name>.jpg")
+def photo(name):
+    if name not in ("vignesh", "avatar"):
+        abort(404)
+    return send_from_directory(BASE, name + ".jpg")
 
 
 @app.get("/api/visit")
