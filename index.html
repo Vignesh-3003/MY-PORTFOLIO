@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="K. Vignesh, CSE (AI &amp; ML) student. Python, JavaScript, C and C++ projects.">
+<meta name="theme-color" content="#0a0606">
+<title>K. Vignesh | CSE AI &amp; ML Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0606;--panel:#150c0c;--bd:#331a1a;--tx:#f5eeee;--mu:#b39d9d;--ac:#ff3b3b;--ac2:#d71c2b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.65 "Space Grotesk",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:0;z-index:5;background:rgba(10,6,6,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;letter-spacing:.02em}
+.logo b{color:var(--ac)}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav ul a{color:var(--mu);text-decoration:none;font-size:15px;white-space:nowrap}
+nav ul a:hover{color:var(--tx)}
+section{padding:84px 0 20px}
+h1{font-size:clamp(40px,8vw,88px);line-height:.95;margin:18px 0 22px;letter-spacing:-.03em}
+h1 span{display:block;color:transparent;-webkit-text-stroke:1.5px var(--ac)}
+h2{font-size:clamp(28px,5vw,44px);margin:0 0 12px;letter-spacing:-.02em}
+h3{margin:0 0 6px;font-size:21px}
+p{margin:0 0 14px;max-width:62ch}
+.tag{display:inline-block;border:1px solid var(--bd);border-radius:99px;padding:4px 12px;font-size:13px;color:var(--ac)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-block;border:1px solid var(--ac);color:var(--bg);background:var(--ac);padding:11px 20px;border-radius:99px;text-decoration:none;font-weight:700;cursor:pointer;font-size:16px;font-family:inherit}
+.btn.ghost{background:none;color:var(--ac)}
+.btn:hover{filter:brightness(1.1)}
+.stats{display:flex;flex-wrap:wrap;gap:34px;margin-top:44px}
+.stats b{display:block;font-size:30px;color:var(--ac)}
+.stats small{color:var(--mu)}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:22px}
+.card p{color:var(--mu);font-size:16px;margin:0}
+.file{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14px}
+.file dt{color:var(--mu)}.file dd{margin:0;color:var(--ac)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips span{border:1px solid var(--bd);border-radius:6px;padding:3px 10px;font-size:13px;color:var(--tx)}
+.proj svg{width:100%;height:auto;display:block;border-radius:10px;margin-bottom:16px}
+.proj .term{margin:0 0 16px;background:#050303;border:1px solid var(--bd);border-radius:10px;padding:14px;font-size:13px;line-height:1.6;color:var(--ac);overflow-x:auto;min-height:180px}
+.term i{color:var(--mu);font-style:normal}
+.p{fill:#150c0c}.l{fill:#241212}.a{fill:#ff3b3b}.a2{fill:#d71c2b}.m{fill:#4d2a2a}.st{stroke:#ff3b3b;fill:none;stroke-width:2.5}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));counter-reset:s}
+ol.steps li{border-left:2px solid var(--ac);padding-left:18px;counter-increment:s}
+ol.steps li::before{content:"Step " counter(s);color:var(--ac);font-size:13px;font-family:"JetBrains Mono",monospace}
+form{display:grid;gap:14px}
+label{display:grid;gap:6px;font-size:15px;color:var(--mu)}
+input,textarea{background:var(--panel);border:1px solid var(--bd);border-radius:10px;color:var(--tx);padding:12px 14px;font:inherit}
+textarea{min-height:130px;resize:vertical}
+.err{color:#ffd479;font-size:14px;min-height:0}
+#status{min-height:24px}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.links a{border:1px solid var(--bd);border-radius:99px;padding:8px 16px;text-decoration:none}
+.links a:hover{border-color:var(--ac)}
+.two{display:grid;gap:36px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.hero{display:grid;gap:40px;align-items:center;grid-template-columns:1.3fr 1fr}
+@media(max-width:800px){.hero{grid-template-columns:1fr}}
+.photo{margin:0;border:2px solid var(--ac);border-radius:18px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,59,.25)}
+.photo img{display:block;width:100%;height:auto}
+.av{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--ac)}
+.pf{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid var(--ac);display:block;margin-bottom:18px}
+footer{margin-top:80px;border-top:1px solid var(--bd);padding:26px 0;color:var(--mu);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+footer b{color:var(--ac)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav aria-label="Main">
+<a class="logo" href="#home"><img class="av" src="static/avatar.jpg" alt="" width="34" height="34">K<b>.</b>VIGNESH</a>
+<ul><li><a href="#about">About</a></li><li><a href="#education">Education</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#approach">Approach</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav></div></header>
+
+<main class="wrap">
+<section id="home" style="padding-top:70px">
+<div class="hero"><div>
+<span class="tag mono">Open to collaborate</span>
+<h1>K. VIGNESH<span>PORTFOLIO</span></h1>
+<p style="font-size:20px">CSE student specializing in Artificial Intelligence and Machine Learning. I build small, working programs in Python and JavaScript and keep making them better.</p>
+<div class="btns"><a class="btn" href="#projects">See my projects</a><a class="btn ghost" href="#contact">Send a message</a></div>
+<div class="stats"><div><b>3</b><small>Projects built</small></div><div><b>4</b><small>Languages</small></div><div><b>AI &amp; ML</b><small>Field of study</small></div></div>
+</div>
+<figure class="photo"><img src="static/vignesh.jpg" alt="K. Vignesh in a black blazer and white shirt, standing in a garden" width="792" height="853"></figure>
+</div>
+</section>
+
+<section id="about">
+<h2>About me</h2>
+<div class="two">
+<div>
+<p>I’m <b>K. Vignesh</b>, a Computer Science and Engineering student specializing in <b>Artificial Intelligence and Machine Learning</b>. I like turning an idea into something I can run, click and show to someone else.</p>
+<p>So far I’ve built a Python calculator, a personal web design, and a to-do web application. Each one taught me something new about logic, structure and how people actually use software.</p>
+<p>I’m still early in my journey, learning by building and improving a little with every project.</p>
+</div>
+<div class="card"><img class="pf" src="static/avatar.jpg" alt="Profile photo of K. Vignesh" width="110" height="110"><dl class="file mono">
+<dt>Name</dt><dd>K. Vignesh</dd><dt>Course</dt><dd>CSE (AI &amp; ML)</dd><dt>Languages</dt><dd>Python, JavaScript, C, C++</dd><dt>Focus</dt><dd>Practical, useful software</dd><dt>Mindset</dt><dd>Learn · Build · Improve</dd></dl></div>
+</div>
+</section>
+
+<section id="education">
+<h2>Education</h2>
+<div class="card" style="border-left:3px solid var(--ac)">
+<h3>Computer Science and Engineering</h3>
+<p style="margin-bottom:10px">Specialization in Artificial Intelligence and Machine Learning. Currently pursuing.</p>
+<p>My coursework and projects cover programming fundamentals, web development and the basics of AI and ML.</p>
+<div class="chips"><span>Python</span><span>JavaScript</span><span>C</span><span>C++</span></div>
+</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<p style="color:var(--mu)">Languages I use in coursework and personal projects.</p>
+<div class="grid">
+<div class="card"><h3>Python</h3><p>Scripts, logic and a Flask backend for this very site.</p></div>
+<div class="card"><h3>JavaScript</h3><p>Page behavior, forms and interactive web apps.</p></div>
+<div class="card"><h3>C</h3><p>Core programming concepts, memory and control flow.</p></div>
+<div class="card"><h3>C++</h3><p>Object-oriented programming and problem solving.</p></div>
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<p style="color:var(--mu)">Three builds, from a command-line tool to a full web app.</p>
+<div class="grid">
+<article class="card proj">
+<pre class="term mono" aria-label="Sample run of the Python calculator"><i>$</i> python calculator.py
+Enter first number: 12
+Operator (+ - * /): *
+Enter second number: 4
+Result: 12 * 4 = 48
+
+Enter first number: 9
+Operator (+ - * /): /
+Enter second number: 0
+Error: cannot divide by zero</pre>
+<h3>Simple Calculator</h3><p>A Python program that adds, subtracts, multiplies and divides, and handles bad input and division by zero.</p>
+<div class="chips"><span>Python</span><span>CLI</span><span>Input checks</span></div>
+</article>
+
+<article class="card proj">
+<svg viewBox="0 0 320 180" role="img" aria-label="Mock-up of a personal web page with a headline, button and three cards">
+<rect class="l" x="0" y="0" width="320" height="180" rx="10"/><rect class="p" x="10" y="10" width="300" height="160" rx="8"/>
+<circle class="a" cx="24" cy="22" r="4"/><circle class="a2" cx="38" cy="22" r="4"/><circle class="m" cx="52" cy="22" r="4"/>
+<rect class="a" x="26" y="46" width="130" height="14" rx="3"/><rect class="m" x="26" y="68" width="190" height="6" rx="3"/><rect class="m" x="26" y="80" width="150" height="6" rx="3"/>
+<rect class="a2" x="26" y="96" width="56" height="16" rx="8"/>
+<rect class="l" x="26" y="124" width="80" height="34" rx="6"/><rect class="l" x="120" y="124" width="80" height="34" rx="6"/><rect class="l" x="214" y="124" width="80" height="34" rx="6"/>
+<rect class="a" x="34" y="134" width="30" height="5" rx="2"/><rect class="a" x="128" y="134" width="30" height="5" rx="2"/><rect class="a" x="222" y="134" width="30" height="5" rx="2"/>
+</svg>
+<h3>Personal Web Design</h3><p>A responsive personal page with a clear layout, readable type and a consistent color scheme.</p>
+<div class="chips"><span>HTML</span><span>CSS</span><span>Responsive</span></div>
+</article>
+
+<article class="card proj">
+<svg viewBox="0 0 320 180" role="img" aria-label="Mock-up of a to-do list with two finished tasks, one open task and an add field">
+<rect class="p" x="0" y="0" width="320" height="180" rx="10"/>
+<rect class="a" x="20" y="16" width="90" height="12" rx="3"/>
+<circle class="a" cx="30" cy="54" r="9"/><path class="st" d="M25 54l4 4 7-8" style="stroke:#0a0606"/><rect class="m" x="50" y="51" width="150" height="7" rx="3"/>
+<circle class="a" cx="30" cy="88" r="9"/><path class="st" d="M25 88l4 4 7-8" style="stroke:#0a0606"/><rect class="m" x="50" y="85" width="110" height="7" rx="3"/>
+<circle cx="30" cy="122" r="9" class="st" style="stroke:#ff6b6b"/><rect class="a2" x="50" y="119" width="170" height="7" rx="3"/>
+<rect class="l" x="20" y="146" width="230" height="22" rx="6"/><rect class="a" x="258" y="146" width="42" height="22" rx="6"/>
+</svg>
+<h3>To-Do Web Application</h3><p>A task app where you add, complete and delete tasks, built with JavaScript.</p>
+<div class="chips"><span>JavaScript</span><span>DOM</span><span>Web app</span></div>
+</article>
+</div>
+</section>
+
+<section id="approach">
+<h2>How I build</h2>
+<ol class="steps">
+<li><h3>Find the problem</h3><p>Start with a small, clear task that needs solving.</p></li>
+<li><h3>Build a first version</h3><p>Write the simplest working code, then run it.</p></li>
+<li><h3>Test and improve</h3><p>Try bad input, fix what breaks and tidy the code.</p></li>
+</ol>
+</section>
+
+<section id="contact">
+<h2>Contact me</h2>
+<div class="two">
+<div>
+<p>Have a project, an idea or feedback? Send a message and I’ll reply by email.</p>
+<div class="links">
+<a href="mailto:vigneshkakarla4241@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/k-vignesh-60b64438a" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://github.com/Vignesh-3003" target="_blank" rel="noopener">GitHub</a>
+</div>
+</div>
+<form id="cf" novalidate>
+<label>Name<input name="name" autocomplete="name" required maxlength="80"><span class="err" data-for="name"></span></label>
+<label>Email<input name="email" type="email" autocomplete="email" required maxlength="120"><span class="err" data-for="email"></span></label>
+<label>Message<textarea name="message" required maxlength="1000"></textarea><span class="err" data-for="message"></span></label>
+<button class="btn" type="submit">Send message</button>
+<div id="status" role="status" aria-live="polite"></div>
+</form>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 K. Vignesh</span><span class="mono">Visitors: <b id="vc">…</b></span></div></footer>
+
+<script>
+const f = document.getElementById("cf"), st = document.getElementById("status");
+f.addEventListener("submit", async e => {
+  e.preventDefault();
+  f.querySelectorAll(".err").forEach(x => x.textContent = "");
+  st.textContent = "Sending…";
+  try {
+    const r = await fetch("/api/contact", {method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(Object.fromEntries(new FormData(f)))});
+    const d = await r.json();
+    if (d.ok) { f.reset(); st.textContent = "Message sent. Thank you!"; st.style.color = "#7ee787"; return; }
+    for (const k in d.errors) f.querySelector('[data-for="' + k + '"]').textContent = d.errors[k];
+    st.textContent = "Fix the highlighted fields and send again."; st.style.color = "#ffd479";
+  } catch (_) {
+    st.textContent = "Could not reach the Python server. Run python app.py and open http://127.0.0.1:5000."; st.style.color = "#ffd479";
+  }
+});
+fetch("/api/visit").then(r => r.json()).then(d => {
+  document.getElementById("vc").textContent = d.visits;
+}).catch(() => { document.getElementById("vc").textContent = "n/a"; });
+</script>
+</body>
+</html>
